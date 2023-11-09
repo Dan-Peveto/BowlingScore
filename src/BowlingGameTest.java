@@ -1,6 +1,6 @@
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Ignore;
+
 import org.junit.Test;
 
 public class BowlingGameTest {
@@ -35,6 +35,11 @@ public class BowlingGameTest {
         rollMany(game, 16, 0);
 
         assertEquals(28, game.score());
+    }
+    public void perfectGameShouldGetPerfectScore() {
+        Game game = new Game();
+        rollMany(game, 12, 10);
+        assertEquals(300, game.score());
     }
     private static void rollMany(Game game, int rolls, int pins) {
         for (int roll = 0; roll < rolls; roll++)  {
