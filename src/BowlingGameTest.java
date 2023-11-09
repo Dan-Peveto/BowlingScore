@@ -5,17 +5,18 @@ public class BowlingGameTest {
     @Test
     public void allGuttersGameScoreShouldBeZero() {
         Game game = new Game();
-        for (int i=0; i<20; i++) {
-            game.roll(0);
-        }
+        rollMany(game, 20, 0);
         assertEquals(0, game.score());
     }
     @Test
     public void allOnesGameShouldScoreTwenty() {
         Game game = new Game();
-        for (int i=0; i<20; i++) {
-            game.roll(1);
-        }
+        rollMany(game, 20, 1);
         assertEquals(20, game.score());
+    }
+    private static void rollMany(Game game, int rolls, int pins) {
+        for (int roll = 0; roll < rolls; roll++)  {
+            game.roll(pins);
+        }
     }
 }
