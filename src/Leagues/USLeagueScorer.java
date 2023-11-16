@@ -1,7 +1,7 @@
 package Leagues;
 
 // Defines the US League Bowling Game Scoring
-public final class USLEagueScorer extends Scorer{
+public final class USLeagueScorer extends Scorer{
     
     public int score(int[] rolls) {
         int score = 0;
