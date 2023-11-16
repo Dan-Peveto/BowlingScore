@@ -10,8 +10,16 @@ public class WorldLeagueBowlingGameTest {
     public void allGuttersGameScoreShouldBeZero() {
         Game game = new Game(new WorldLeagueScorer());
         rollMany(game, 20, 0);
+        assertEquals(0, game.score());
     }
     // allOnesGameShouldScoreTwenty
+
+    @Test
+    public void allGuttersGameScoreTwenty() {
+        Game game = new Game(new WorldLeagueScorer());
+        rollMany(game, 20, 1);
+        assertEquals(20, game.score());
+    }
     // spareShoulGetFirstRollBonus such that roles 5, 5, 3 = 18
     // strikeShouldGetThirtyNoBonus, such that roles 10, 2, 7 = 39
     // perfectGameShouldGetPerfectScore, such that 10 roles of 10 = 300
