@@ -1,32 +1,30 @@
+
+
+// Defines a scorable bowling game
 public class Game {
     
+    // Fields 
+    private Scorer _scorer;
     private int[] _rolls = new int[21];
     private int _turn = 0;
+
+    // Instantiates a new game using a scoring algorithm scorer calculates roll scores for the game
+    public Game(Scorer scorer) {
+        _scorer = scorer;
+    }
+
+    // Updates game rolls with the number of pins 
+    public void roll(int pins) {
+        _rolls[_turn++] = pins;
+    }
+
+    // Scores the rolls of the games
+    public int score() {
+        return _scorer.score(_rolls);
+    }
 
     public void roll(int pins) {
         _rolls[_turn++] = pins;
     }
-    public int score() {
-        int score = 0;
-        int roll = 0;
-        for(int frame=0; frame < 10; frame++) {
-                if(isStrikeFrame(roll)) {
-                    score += 10 + _rolls[roll + 1] + _rolls[roll + 2];
-                    roll++;
-                } else if(isSpareFrame(roll)) {
-                score += 10 + _rolls[roll + 2];
-                roll += 2;
-            } else {
-                score += _rolls[roll] + _rolls[roll + 1];
-                roll += 2;
-            }
-        }
-        return score;
-    }
-    private boolean isSpareFrame(int roll) {
-        return _rolls[roll] + _rolls[roll + 1] == 10;
-    }
-    private boolean isStrikeFrame(int roll) {
-        return _rolls[roll] == 10;
-    }
+    
 }
