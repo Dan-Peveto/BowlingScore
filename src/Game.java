@@ -22,9 +22,4 @@ public class Game {
     public int score() {
         return _scorer.score(_rolls);
     }
-
-    public void roll(int pins) {
-        _rolls[_turn++] = pins;
-    }
-    
 }
