@@ -15,7 +15,7 @@ public class WorldLeagueBowlingGameTest {
     // allOnesGameShouldScoreTwenty
 
     @Test
-    public void allGuttersGameScoreTwenty() {
+    public void allOnesGameScoreTwenty() {
         Game game = new Game(new WorldLeagueScorer());
         rollMany(game, 20, 1);
         assertEquals(20, game.score());
