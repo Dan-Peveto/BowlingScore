@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 
 public class Players {
@@ -9,11 +10,23 @@ public class Players {
 
    
     // Fields
+    public void addPlayers() {
+        System.out.print("How maner players: "); // How many Players
+        Scanner scanner = new Scanner(System.in);
+        int numOfPlayers = scanner.nextInt();
+        scanner.nextLine();
+        int playerNum = 1;
     
+        // take in player name and add to the list
+        while (playerNum <= numOfPlayers) {  // Name each player 
+            System.out.print("Name Player " + playerNum +": ");
+            String playerName = scanner.nextLine();
+            playerList.add(playerName);
+            playerNum++;
+        }
+    }    
     // Contructors
-    public Players(ArrayList<String> playerList) {
-        this.playerList = playerList;
-    }
+
 
 }
 
