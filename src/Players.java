@@ -1,14 +1,12 @@
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.lang.reflect.Array;
+import java.util.*;
 
 
 public class Players {
     
     // Data
-    private ArrayList<String> playerList = new  ArrayList<String>();
-    private ArrayList<Integer> scoreList = new ArrayList<Integer>();
-
-   
+    protected HashMap<String, Integer> playerMap = new  HashMap<String, Integer>();
+    protected ArrayList<Integer> scoreList = new ArrayList<Integer>();
     // Fields
     public void addPlayers() {
         System.out.print("How maner players: "); // How many Players
@@ -21,9 +19,10 @@ public class Players {
         while (playerNum <= numOfPlayers) {  // Name each player 
             System.out.print("Name Player " + playerNum +": ");
             String playerName = scanner.nextLine();
-            playerList.add(playerName);
+            playerMap.put(playerName, 0);
             playerNum++;
         }
+        scanner.close();
     }    
     // Contructors
 
